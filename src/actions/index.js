@@ -20,6 +20,7 @@ export const fetchSmurfs = () => {
     dispatch({ type: FETCH_DATA_LOADING });
 
     axios
+<<<<<<< HEAD
       .get("http://localhost:3333/smurfs")
       .then((res) => {
         console.log(res);
@@ -28,6 +29,16 @@ export const fetchSmurfs = () => {
       .catch((err) => {
         console.log(err);
         dispatch({ type: FETCH_DATA_FAIL, payload: err });
+=======
+      .get("http:/localhost:3333/smurfs")
+      .then((res) => {
+        console.log(res);
+        // dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data.Global });
+      })
+      .catch((err) => {
+        console.log(err);
+        // dispatch({ type: FETCH_DATA_FAIL, payload: err.Response.code });
+>>>>>>> cfe2d381847646df8cac3f5e9210fc252a3a67f9
       });
   };
 };
@@ -44,6 +55,7 @@ export const fetchDataFail = (error) => {
   return { type: FETCH_DATA_FAIL, payload: error };
 };
 
+<<<<<<< HEAD
 export const addSmurf = (smurf) => {
   return (dispatch) => {
     dispatch({
@@ -59,5 +71,19 @@ export const setError = () => {
       type: ERROR_MESSAGE,
       payload: "Name, position and nickname fields are required.",
     });
+=======
+export const addSmurf = (name) => {
+  return {
+    type: ADD_SMURF,
+    payload: name,
+  };
+};
+
+//does this take in a parameter?
+export const errorMessage = () => {
+  return {
+    type: ERROR_MESSAGE,
+    payload: "I'm sorry, there was an error",
+>>>>>>> cfe2d381847646df8cac3f5e9210fc252a3a67f9
   };
 };
